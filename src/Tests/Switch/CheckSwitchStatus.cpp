@@ -1,6 +1,5 @@
 #include "CheckSwitchStatus.h"
 #include <Arduino.h>
-#include "../../Config/Config.h"
 
 void checkSwitchStatus()
 {
