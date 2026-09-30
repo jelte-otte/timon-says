@@ -3,7 +3,6 @@
 
 void setup() {
     startup();
-    Serial.begin(9600);
 }
 
 void loop() {
