@@ -1,4 +1,5 @@
 #include "SetupPins.h"
+#include <Arduino.h>
 #include "../../Config/Config.h"
 
 void setupPins()

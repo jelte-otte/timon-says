@@ -1,6 +1,7 @@
 #include "PlayWelcomeSoundAndAnimation.h"
 #include <Arduino.h>
 #include "../../Config/Config.h"
+#include "../PlayToneForLED/PlayToneForLED.h"
 
 void playWelcomeSoundAndAnimation()
 {
@@ -29,9 +30,10 @@ void welcomeAnimation()
     for (int i = 0; i < 19; i++)
     {
         unsigned long LED = random(8, 11);
+        Serial.println(LED);
         digitalWrite(LED, HIGH);
-        delay(300);
+        PlayToneForLED(LED);
         digitalWrite(LED, LOW);
-        delay(300);
+        delay(250);
     }
 }
