@@ -1,7 +1,7 @@
 #include "Startup.h"
 #include <Arduino.h>
-#include "PlayWelcomeSoundAndAnimation.h"
-#include "SetupPins.h"
+#include "PlayWelcomeSoundAndAnimation/PlayWelcomeSoundAndAnimation.h"
+#include "SetupPins/SetupPins.h"
 
 void startup()
 {
