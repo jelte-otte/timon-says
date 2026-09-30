@@ -1,7 +1,7 @@
 #include "PlayWelcomeSoundAndAnimation.h"
 #include <Arduino.h>
-#include "../../Config/Config.h"
-#include "../PlayToneForLED/PlayToneForLED.h"
+#include "../../../Config/Config.h"
+#include "../../PlayToneForLED/PlayToneForLED.h"
 
 void playWelcomeSoundAndAnimation()
 {

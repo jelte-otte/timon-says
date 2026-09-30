@@ -5,6 +5,7 @@
 
 void startup()
 {
+    Serial.begin(9600);
     setupPins();
     randomSeed(A0);
     playWelcomeSoundAndAnimation();
