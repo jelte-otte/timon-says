@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "../../Config/Config.h"
 
 void PlayToneForLED(int LED)
