@@ -3,9 +3,11 @@
 // Game settings
 // Jonathan mode is the easier mode
 const bool development = true;
-const bool jonathanMode = false;
-const bool sound = true;
-unsigned int activemode = 0;
+const unsigned int maxRounds = 10;
+
+bool jonathanMode = false;
+bool sound = true;
+unsigned int activeItem = 0;
 
 // LEDs
 const uint8_t blueLED = 10;
@@ -33,6 +35,10 @@ const LEDsButtonsSoundsStruct LEDButtonSoundMap[] = {
     {greenLED, greenButton, greenLEDSound},
     {yellowLED, yellowButton, yellowLEDSound},
 };
+
+// Seperate button array for easier acces
+uint8_t buttons[] = {blueButton, redButton, greenButton, yellowButton};
+
 
 // Buzzer
 const uint8_t buzzerPin = 5;
