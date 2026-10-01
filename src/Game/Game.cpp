@@ -3,17 +3,18 @@
 #include "PatternLogic/PatternLogic.h"
 #include "../Config/Config.h"
 #include "../Services/CheckButtonState/CheckButtonState.h"
+#include "../Services/TurnOnLED/TurnOnLED.h"
 
 void playGame()
 {
-    int gameRound = 0;
+    int gameRound = 1;
     uint8_t pattern[maxRounds];
     generatePattern(pattern);
     bool hasWonGame = false;
     for (gameRound; gameRound < maxRounds; gameRound++)
     {
         showPattern(gameRound, pattern);
-        if (gameRound == 0)
+        if (gameRound == 1)
         {
             bool allPressed = areButtonsPressed(buttons, 4);
             if (allPressed)
@@ -24,36 +25,36 @@ void playGame()
             Serial.println("gameRound = 0");
         }
         unsigned long now = millis();
-        Result result;
+        bool success = false;
         for (int i = 0; i < gameRound; i++)
         {
             Serial.print("We are gaming in round ");
             Serial.println(gameRound);
             while (millis() - now < 20000)
-            {            
-                // Serial.print("We are now at buttonpress ");
-                // Serial.println(i);
-                result = checkPattern(i, pattern);
-                if (result != Result::none)
+            {
+                success = false;
+                int pressedButtonPin = whichButtonisPressed(buttons, 4);
+                if (pressedButtonPin >= 0)
                 {
-                    Serial.println("AMAI, we pressed a button");
-                    break;
+                    turnOnLEDForButton(pressedButtonPin);
+                    success = checkPattern(pressedButtonPin, i, pattern);
+                        Serial.println("AMAI, we pressed a button");
+                        break;
                 }
             }
-            if (result == Result::failed)
+            if (!success)
             {
                 Serial.println("AWWW wrong button");
                 break;
             }
-            delay(200);
         }
-        if (result == Result::failed)
+        if (!success)
         {
             Serial.println("Sorry buddy you lost.");
             hasWonGame = false;
             break;
         }
-        Serial.println("Okayy, good job. You pressed the correct button. How impressive.");
+        Serial.println("Okayy, good job. You pressed the correct buttons. How impressive...");
         hasWonGame = true;
     }
     if (hasWonGame)

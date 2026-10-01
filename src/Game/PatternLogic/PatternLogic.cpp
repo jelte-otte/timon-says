@@ -4,36 +4,28 @@
 #include "../../Services/CheckButtonState/CheckButtonState.h"
 #include "../../Services/TurnOnLED/TurnOnLED.h"
 
-Result checkPattern(size_t previousPresses, uint8_t *pattern)
+bool checkPattern(uint8_t pressedButtonPin, size_t previousPresses, uint8_t *pattern)
 {
 
-    int pressedButtonPin = whichButtonisPressed(buttons, 4);
-    if (pressedButtonPin < 0)
+    uint8_t LEDPin;
+    for (int i = 0; i < 4; i++)
     {
-        return Result::none;
+        if (pressedButtonPin == LEDButtonSoundMap[i].ButtonPin)
+        {
+            LEDPin = LEDButtonSoundMap[i].LEDPin;
+        }
+    }
+    Serial.print("We are checking the pressed button LED (");
+    Serial.print(LEDPin);
+    Serial.print(") against ");
+    Serial.println(pattern[previousPresses]);
+    if (LEDPin != pattern[previousPresses])
+    {
+        return false;
     }
     else
     {
-        uint8_t LEDPin;
-        for (int i = 0; i < 4; i++)
-        {
-            if (pressedButtonPin == LEDButtonSoundMap[i].ButtonPin)
-            {
-                LEDPin = LEDButtonSoundMap[i].LEDPin;
-            }
-        }
-        Serial.print("We are checking the pressed button LED (");
-        Serial.print(LEDPin);
-        Serial.print(") against ");
-        Serial.println(pattern[previousPresses]);
-        if (LEDPin != pattern[previousPresses])
-        {
-            return Result::failed;
-        }
-        else
-        {
-            return Result::succes;
-        }
+        return true;
     }
 }
 

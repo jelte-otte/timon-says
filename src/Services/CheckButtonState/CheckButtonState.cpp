@@ -46,8 +46,6 @@ int whichButtonisPressed(const uint8_t *buttonPins, unsigned int buttonCount){
         }
     }
 
-    delay(100);
-
     for (unsigned int i = 0; i < buttonCount; i++){
         if (digitalRead(buttonPins[i]) == LOW){
             return buttonPins[i];
