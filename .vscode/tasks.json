@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update header for active C++ file",
+      "type": "process",
+      "command": "python3",
+      "args": ["${workspaceFolder}/scripts/sync_header.py", "${file}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
