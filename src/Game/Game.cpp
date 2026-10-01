@@ -4,6 +4,7 @@
 #include "../Config/Config.h"
 #include "../Services/CheckButtonState/CheckButtonState.h"
 #include "../Services/TurnOnLED/TurnOnLED.h"
+#include "EndAnimation/EndAnimation.h"
 
 void playGame()
 {
@@ -11,7 +12,7 @@ void playGame()
     uint8_t pattern[maxRounds];
     generatePattern(pattern);
     bool hasWonGame = false;
-    for (gameRound; gameRound < maxRounds; gameRound++)
+    for (gameRound; gameRound <= maxRounds; gameRound++)
     {
         showPattern(gameRound, pattern);
         if (gameRound == 1)
@@ -22,7 +23,7 @@ void playGame()
                 // Print that they are all pressed, implement further logic later.
                 Serial.println("This should start resting state, but that is not implemented yet");
             }
-            Serial.println("gameRound = 0");
+            Serial.println("gameRound = 1");
         }
         unsigned long now = millis();
         bool success = false;
@@ -60,9 +61,11 @@ void playGame()
     if (hasWonGame)
     {
         Serial.println("hurray!");
+        playWinAnimation();
     }
     else
     {
         Serial.println(":sad:");
+        playLoseAnimation();
     }
 }

@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "../../Config/Config.h"
 
-void PlayToneForLED(int LED)
+void PlayToneForLED(int LED, int duration = 250)
 {
     int sound;
     for (int i = 0; i < 4; i++)
@@ -11,5 +11,5 @@ void PlayToneForLED(int LED)
             sound = LEDButtonSoundMap[i].sound;
         }
     }
-    tone(buzzerPin, sound, 250);
+    tone(buzzerPin, sound, duration);
 }

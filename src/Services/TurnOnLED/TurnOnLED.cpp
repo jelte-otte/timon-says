@@ -24,3 +24,11 @@ void turnOnLEDForButton(uint8_t buttonPin)
     }
     turnOnLED(LEDPin);
 }
+
+void setAllLEDs(uint8_t state)
+{
+    for (uint8_t i = 0; i < 4; i++)
+    {
+        digitalWrite(LEDButtonSoundMap[i].LEDPin, state);
+    }
+}
