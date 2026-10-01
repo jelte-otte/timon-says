@@ -1,5 +1,6 @@
 #include "Startup.h"
 #include <Arduino.h>
+#include "../../Config/Config.h"
 #include "PlayWelcomeSoundAndAnimation/PlayWelcomeSoundAndAnimation.h"
 #include "SetupPins/SetupPins.h"
 
@@ -8,5 +9,8 @@ void startup()
     Serial.begin(9600);
     setupPins();
     randomSeed(A0);
-    playWelcomeSoundAndAnimation();
+    if (!development)
+    {
+        playWelcomeSoundAndAnimation();
+    }
 }

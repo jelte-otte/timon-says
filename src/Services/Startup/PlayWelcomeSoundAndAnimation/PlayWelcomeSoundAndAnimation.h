@@ -4,5 +4,5 @@
 // BEGIN GENERATED DECLARATIONS
 void playWelcomeSoundAndAnimation();
 void playBootSound();
-void welcomeAnimation();
+void playWelcomeAnimation();
 // END GENERATED DECLARATIONS

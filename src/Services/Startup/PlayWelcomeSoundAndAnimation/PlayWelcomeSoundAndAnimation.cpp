@@ -6,7 +6,7 @@
 void playWelcomeSoundAndAnimation()
 {
     playBootSound();
-    welcomeAnimation();
+    playWelcomeAnimation();
 }
 
 // Made by chatgpt
@@ -25,15 +25,50 @@ void playBootSound()
 }
 // until here
 
-void welcomeAnimation()
+// Also made by chatgpt
+void playWelcomeAnimation()
 {
-    for (int i = 0; i < 19; i++)
+    // Rise, fall, then build up to a cheerful finish.
+    const uint8_t melody[] = {
+        redLED, greenLED, blueLED, yellowLED,
+        blueLED, greenLED, redLED,
+        greenLED, blueLED, greenLED, blueLED,
+        yellowLED, blueLED, yellowLED,
+    };
+    const unsigned int lengths[] = {
+        120, 120, 120, 240,
+        120, 120, 240,
+        120, 120, 120, 120,
+        240, 120, 240,
+    };
+
+    for (uint8_t i = 0; i < 4; i++)
     {
-        unsigned long LED = random(8, 11);
-        Serial.println(LED);
-        digitalWrite(LED, HIGH);
-        PlayToneForLED(LED);
-        digitalWrite(LED, LOW);
-        delay(250);
+        digitalWrite(LEDButtonSoundMap[i].LEDPin, LOW);
+    }
+
+    for (uint8_t i = 0; i < sizeof(melody) / sizeof(melody[0]); i++)
+    {
+        digitalWrite(melody[i], HIGH);
+        PlayToneForLED(melody[i]);
+        delay(lengths[i]);
+        noTone(buzzerPin);
+        digitalWrite(melody[i], LOW);
+        delay(35);
+    }
+
+    // Light every LED together on the final high note.
+    for (uint8_t i = 0; i < 4; i++)
+    {
+        digitalWrite(LEDButtonSoundMap[i].LEDPin, HIGH);
+    }
+    PlayToneForLED(yellowLED);
+    delay(240);
+    noTone(buzzerPin);
+
+    for (uint8_t i = 0; i < 4; i++)
+    {
+        digitalWrite(LEDButtonSoundMap[i].LEDPin, LOW);
     }
 }
+// until here
