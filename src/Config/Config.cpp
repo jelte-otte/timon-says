@@ -1,13 +1,14 @@
 #include "Config.h"
 
 // Game settings
-// Jonathan mode is the easier mode
+// oldPeopleMode is the easier mode
+// development turns off the intro animation and sound (that last one still has to be implemented (01-10-2026))
+// activeItem is the active menu item, where 0 is the sound setting and 1 is the mode setting.
 const bool development = true;
-const unsigned int maxRounds = 10;
-
-bool jonathanMode = false;
+bool oldPeopleMode = true;
 bool sound = true;
 unsigned int activeItem = 0;
+const unsigned int maxRounds = oldPeopleMode ? 3 : 10;
 
 // LEDs
 const uint8_t blueLED = 10;
