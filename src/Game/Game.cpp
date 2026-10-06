@@ -17,19 +17,6 @@ void playGame()
     for (gameRound; gameRound <= maxRounds + offset; gameRound++)
     {
         showPattern(gameRound, pattern);
-        if (gameRound == 1)
-        {
-            // bool allPressed = areButtonsPressed(buttons, 4);
-            // if (allPressed)
-            // {                
-            //     int pressedButton;
-            //     while(pressedButton > 0){
-            //         pressedButton = whichButtonisPressed(buttons, 4);
-            //     }
-            //     break;
-            // }
-            // Serial.println("gameRound = 1");
-        }
         unsigned long now = millis();
         bool success = false;
         for (int i = 0; i < gameRound; i++)
