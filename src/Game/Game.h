@@ -2,5 +2,5 @@
 #include <stdint.h>
 
 // BEGIN GENERATED DECLARATIONS
-void PlayToneForLED(int LED, int duration = 250);
+void playGame();
 // END GENERATED DECLARATIONS

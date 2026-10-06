@@ -10,9 +10,10 @@ struct LEDsButtonsSoundsStruct
 
 // BEGIN GENERATED DECLARATIONS
 extern const bool development;
-extern const bool jonathanMode;
-extern const bool sound;
-extern unsigned int activemode;
+extern const unsigned int maxRounds;
+extern bool jonathanMode;
+extern bool sound;
+extern unsigned int activeItem;
 extern const uint8_t blueLED;
 extern const uint8_t redLED;
 extern const uint8_t greenLED;
@@ -26,6 +27,13 @@ extern const unsigned int greenLEDSound;
 extern const unsigned int blueLEDSound;
 extern const unsigned int yellowLEDSound;
 extern const LEDsButtonsSoundsStruct LEDButtonSoundMap[];
+extern uint8_t buttons[];
 extern const uint8_t buzzerPin;
 extern const uint8_t switchPin;
+
+enum class Result{
+    none,
+    succes,
+    failed
+};
 // END GENERATED DECLARATIONS
