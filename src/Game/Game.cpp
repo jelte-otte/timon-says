@@ -13,7 +13,8 @@ void playGame()
     uint8_t pattern[maxRounds];
     generatePattern(pattern);
     bool hasWonGame = false;
-    for (gameRound; gameRound <= maxRounds; gameRound++)
+    int offset = oldPeopleMode ? maxRounds*0.7*-1 : 0;
+    for (gameRound; gameRound <= maxRounds + offset; gameRound++)
     {
         showPattern(gameRound, pattern);
         if (gameRound == 1)

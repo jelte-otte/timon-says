@@ -34,9 +34,13 @@ bool checkPattern(uint8_t pressedButtonPin, size_t previousPresses, uint8_t *pat
 
 void showPattern(int round, uint8_t *pattern)
 {
+    unsigned int delay = oldPeopleMode
+        ? 1000
+        : max(150, 500 - round * 30);
+
     for (int i = 0; i < round; i++)
     {
-        turnOnLED(pattern[i], 500);
+        turnOnLED(pattern[i], delay);
     }
 }
 

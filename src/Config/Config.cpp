@@ -8,7 +8,7 @@ const bool development = false;
 bool oldPeopleMode = false;
 bool shouldMakeSound = true;
 unsigned int activeItem = 0;
-const unsigned int maxRounds = oldPeopleMode ? 3 : 10;
+const unsigned int maxRounds = 10;
 
 // LEDs
 const uint8_t blueLED = 10;
