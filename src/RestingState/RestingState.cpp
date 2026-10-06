@@ -3,6 +3,7 @@
 #include "SwitchState/SwitchState.h"
 #include "../Config/Config.h"
 #include "../Services/CheckButtonState/CheckButtonState.h"
+#include "../Services/TurnOnLED/TurnOnLED.h"
 
 
 void restingState()
@@ -36,5 +37,7 @@ void restingState()
             }
         }
     }
+    setAllLEDs(LOW);
+    delay(400);
 }
 

@@ -4,9 +4,9 @@
 // oldPeopleMode is the easier mode
 // development turns off the intro animation and sound (that last one still has to be implemented (01-10-2026))
 // activeItem is the active menu item, where 0 is the sound setting and 1 is the mode setting.
-const bool development = true;
-bool oldPeopleMode = true;
-bool sound = true;
+const bool development = false;
+bool oldPeopleMode = false;
+bool shouldMakeSound = true;
 unsigned int activeItem = 0;
 const unsigned int maxRounds = oldPeopleMode ? 3 : 10;
 

@@ -11,5 +11,8 @@ void PlayToneForLED(int LED, int duration = 250)
             sound = LEDButtonSoundMap[i].sound;
         }
     }
-    tone(buzzerPin, sound, duration);
+    if (shouldMakeSound && !development)
+    {
+        tone(buzzerPin, sound, duration);
+    }
 }

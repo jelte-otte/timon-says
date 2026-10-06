@@ -10,7 +10,7 @@ void setup()
 
 void loop()
 {
-    // playGame();
+    playGame();
     restingState();
     Serial.println("playing game");
 }   

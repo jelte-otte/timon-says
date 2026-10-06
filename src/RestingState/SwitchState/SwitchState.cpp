@@ -14,7 +14,7 @@ void switchSettingsOnOff(uint8_t LEDState, bool shouldBeOn)
     case 0:
         digitalWrite(greenLED, LEDState);
         digitalWrite(yellowLED, LOW);
-        sound = shouldBeOn;
+        shouldMakeSound = shouldBeOn;
         break;
     case 1:
         digitalWrite(yellowLED, LEDState);
@@ -25,7 +25,7 @@ void switchSettingsOnOff(uint8_t LEDState, bool shouldBeOn)
         activeItem = 0;
         digitalWrite(greenLED, LEDState);
         digitalWrite(yellowLED, LOW);
-        sound = shouldBeOn;
+        shouldMakeSound = shouldBeOn;
         break;
     }
 }
