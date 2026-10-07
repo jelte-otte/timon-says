@@ -37,35 +37,32 @@ void switchLEDStateBasedOnActiveItem()
     switch (activeItem)
     {
     case 0:
-        digitalWrite(greenLED, LOW);
-        delay(100);
-        digitalWrite(greenLED, HIGH);
-        delay(100);
-        digitalWrite(greenLED, LOW);
-        delay(100);
-        digitalWrite(greenLED, HIGH);
-        delay(100);
+        for (int i = 0; i < 2; i++)
+        {
+            digitalWrite(greenLED, LOW);
+            delay(100);
+            digitalWrite(greenLED, HIGH);
+            delay(100);
+        }
         break;
     case 1:
-        digitalWrite(yellowLED, LOW);
-        delay(100);
-        digitalWrite(yellowLED, HIGH);
-        delay(100);
-        digitalWrite(yellowLED, LOW);
-        delay(100);
-        digitalWrite(yellowLED, HIGH);
-        delay(100);
+        for (int i = 0; i < 2; i++)
+        {
+            digitalWrite(yellowLED, LOW);
+            delay(100);
+            digitalWrite(yellowLED, HIGH);
+            delay(100);
+        }
         break;
     default:
         activeItem = 0;
-        digitalWrite(greenLED, LOW);
-        delay(100);
-        digitalWrite(greenLED, HIGH);
-        delay(100);
-        digitalWrite(greenLED, LOW);
-        delay(100);
-        digitalWrite(greenLED, HIGH);
-        delay(100);
+        for (int i = 0; i < 2; i++)
+        {
+            digitalWrite(greenLED, LOW);
+            delay(100);
+            digitalWrite(greenLED, HIGH);
+            delay(100);
+        }
         break;
     }
 }

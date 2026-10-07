@@ -13,12 +13,12 @@ void restingState()
     while (pressedButton != 12)
     {
         pressedButton = whichButtonisPressed(buttons, 4);
-        if (pressedButton == 7)
+        if (pressedButton == 7 && activeItem != 0)
         {
             activeItem = 0;
             switchLEDStateBasedOnActiveItem();
         }
-        else if (pressedButton == 6)
+        else if (pressedButton == 6 && activeItem != 1)
         {
             activeItem = 1;
             switchLEDStateBasedOnActiveItem();
@@ -32,7 +32,6 @@ void restingState()
             }
             else
             {
-                delay(200);
                 switchSettingsOnOff(LOW, false);
             }
         }
@@ -40,4 +39,3 @@ void restingState()
     setAllLEDs(LOW);
     delay(400);
 }
-
