@@ -1,3 +1,4 @@
-.vscode/*
+.vscode/
+scripts/
 !.vscode/tasks.json
 build/
