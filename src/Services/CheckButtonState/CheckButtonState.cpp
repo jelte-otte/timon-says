@@ -13,28 +13,6 @@ bool isButtonPressed(uint8_t buttonPin){
     return false;
 }
 
-bool areButtonsPressed(const uint8_t *buttonPins, unsigned int buttonCount){
-    if (buttonCount == 0 || buttonPins == nullptr){
-        return false;
-    }
-
-    for (unsigned int i = 0; i < buttonCount; i++){
-        if (digitalRead(buttonPins[i]) != LOW){
-            return false;
-        }
-    }
-
-    delay(100);
-
-    for (unsigned int i = 0; i < buttonCount; i++){
-        if (digitalRead(buttonPins[i]) != LOW){
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int whichButtonisPressed(const uint8_t *buttonPins, unsigned int buttonCount){
     if (buttonCount == 0 || buttonPins == nullptr){
         return -1;

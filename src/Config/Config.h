@@ -10,10 +10,10 @@ struct LEDsButtonsSoundsStruct
 
 // BEGIN GENERATED DECLARATIONS
 extern const bool development;
-extern const unsigned int maxRounds;
-extern bool jonathanMode;
-extern bool sound;
+extern bool oldPeopleMode;
+extern bool shouldMakeSound;
 extern unsigned int activeItem;
+extern const unsigned int maxRounds;
 extern const uint8_t blueLED;
 extern const uint8_t redLED;
 extern const uint8_t greenLED;
