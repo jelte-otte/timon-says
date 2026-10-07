@@ -5,10 +5,11 @@
 // development turns off the intro animation and sound (that last one still has to be implemented (01-10-2026))
 // activeItem is the active menu item, where 0 is the sound setting and 1 is the mode setting.
 const bool development = false;
+const unsigned int maxRounds = 10;
+
 bool oldPeopleMode = false;
 bool shouldMakeSound = true;
 unsigned int activeItem = 0;
-const unsigned int maxRounds = 10;
 
 // LEDs
 const uint8_t blueLED = 10;
