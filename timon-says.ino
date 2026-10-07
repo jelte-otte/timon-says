@@ -1,6 +1,7 @@
 #include "src/Services/Startup/Startup.h"
 #include "src/Tests/LEDs/TurnOnAllLEDs.h"
 #include "src/Game/Game.h"
+#include "src/RestingState/RestingState.h"
 
 void setup()
 {
@@ -10,6 +11,6 @@ void setup()
 void loop()
 {
     playGame();
-    Serial.println("Done");
-    delay(1000000);
+    restingState();
+    Serial.println("playing game");
 }   

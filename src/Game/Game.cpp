@@ -1,10 +1,11 @@
 #include "Game.h"
 #include <Arduino.h>
 #include "PatternLogic/PatternLogic.h"
+#include "EndAnimation/EndAnimation.h"
 #include "../Config/Config.h"
 #include "../Services/CheckButtonState/CheckButtonState.h"
 #include "../Services/TurnOnLED/TurnOnLED.h"
-#include "EndAnimation/EndAnimation.h"
+#include "../RestingState/RestingState.h"
 
 void playGame()
 {
@@ -12,19 +13,10 @@ void playGame()
     uint8_t pattern[maxRounds];
     generatePattern(pattern);
     bool hasWonGame = false;
-    for (gameRound; gameRound <= maxRounds; gameRound++)
+    int offset = oldPeopleMode ? maxRounds*0.7*-1 : 0;
+    for (gameRound; gameRound <= maxRounds + offset; gameRound++)
     {
         showPattern(gameRound, pattern);
-        if (gameRound == 1)
-        {
-            bool allPressed = areButtonsPressed(buttons, 4);
-            if (allPressed)
-            {
-                // Print that they are all pressed, implement further logic later.
-                Serial.println("This should start resting state, but that is not implemented yet");
-            }
-            Serial.println("gameRound = 1");
-        }
         unsigned long now = millis();
         bool success = false;
         for (int i = 0; i < gameRound; i++)
