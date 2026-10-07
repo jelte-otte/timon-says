@@ -31,8 +31,34 @@ void playGame()
                 {
                     turnOnLEDForButton(pressedButtonPin);
                     success = checkPattern(pressedButtonPin, i, pattern);
-                        Serial.println("AMAI, we pressed a button");
-                        break;
+                    Serial.println("AMAI, we pressed a button");
+
+                    // Require a stable release before accepting another press.
+                    unsigned long releasedSince = millis();
+                    bool releaseStarted = false;
+                    bool released = false;
+                    while (millis() - now < 20000)
+                    {
+                        if (whichButtonisPressed(buttons, 4) >= 0)
+                        {
+                            releaseStarted = false;
+                        }
+                        else
+                        {
+                            if (!releaseStarted)
+                            {
+                                releasedSince = millis();
+                                releaseStarted = true;
+                            }
+                            if (millis() - releasedSince >= 30)
+                            {
+                                released = true;
+                                break;
+                            }
+                        }
+                    }
+                    success = success && released;
+                    break;
                 }
             }
             if (!success)
@@ -49,6 +75,10 @@ void playGame()
         }
         Serial.println("Okayy, good job. You pressed the correct buttons. How impressive...");
         hasWonGame = true;
+        if (gameRound < maxRounds + offset)
+        {
+            delay(250);
+        }
     }
     if (hasWonGame)
     {

@@ -6,6 +6,7 @@
 void setup()
 {
     startup();
+    delay(400);
 }
 
 void loop()
