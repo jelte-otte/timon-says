@@ -30,6 +30,9 @@ extern const LEDsButtonsSoundsStruct LEDButtonSoundMap[];
 extern uint8_t buttons[];
 extern const uint8_t buzzerPin;
 extern const uint8_t switchPin;
+extern uint8_t activeItemAddress;
+extern uint8_t shouldMakeSoundAddress;
+extern uint8_t oldPeopleModeAddress;
 
 enum class Result{
     none,

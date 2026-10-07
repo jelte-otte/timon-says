@@ -47,3 +47,8 @@ const uint8_t buzzerPin = 5;
 
 // Switch
 const uint8_t switchPin = 4;
+
+// Storage
+uint8_t activeItemAddress = 0;
+uint8_t shouldMakeSoundAddress = 1;
+uint8_t oldPeopleModeAddress = 2;
