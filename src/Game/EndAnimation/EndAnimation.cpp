@@ -16,19 +16,19 @@ void playWinAnimation()
     for (uint8_t i = 0; i < sizeof(melody) / sizeof(melody[0]); i++)
     {
         digitalWrite(melody[i], HIGH);
-        PlayToneForLED(melody[i], 300);
-        delay(300);
+        PlayToneForLED(melody[i], 180);
+        delay(180);
         digitalWrite(melody[i], LOW);
-        delay(120);
+        delay(70);
     }
 
     for (uint8_t i = 0; i < 3; i++)
     {
         setAllLEDs(HIGH);
-        PlayToneForLED(yellowLED, 350);
-        delay(350);
+        PlayToneForLED(yellowLED, 200);
+        delay(200);
         setAllLEDs(LOW);
-        delay(250);
+        delay(150);
     }
 }
 
